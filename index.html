@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshDrop — Fresh Groceries, Delivered Today</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="30" height="30">
+            <path d="M20 4C12 10 8 18 8 24a12 12 0 0 0 24 0c0-6-4-14-12-20Z" fill="currentColor"/>
+            <path d="M20 12v20" stroke="#F8FAF6" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        FreshDrop
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#how-it-works">How it works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#track">Track order</a>
+
+        <!-- Collapsible "More" dropdown for categories -->
+        <div class="dropdown" id="moreDropdown">
+          <button class="dropdown-toggle" id="moreToggle" aria-haspopup="true" aria-expanded="false">
+            Categories
+            <svg class="chev" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="dropdown-panel" id="morePanel" role="menu">
+            <a href="#categories" data-category="produce" role="menuitem">?? Fruits &amp; Vegetables</a>
+            <a href="#categories" data-category="bakery" role="menuitem">?? Bakery</a>
+            <a href="#categories" data-category="dairy" role="menuitem">?? Dairy &amp; Eggs</a>
+            <a href="#categories" data-category="meat" role="menuitem">?? Meat &amp; Seafood</a>
+            <a href="#categories" data-category="pantry" role="menuitem">?? Pantry Staples</a>
+            <a href="#categories" data-category="beverages" role="menuitem">?? Beverages</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-right">
+        <!-- Notification bell -->
+        <div class="dropdown notif-dropdown" id="notifDropdown">
+          <button class="icon-btn" id="notifToggle" aria-haspopup="true" aria-expanded="false" aria-label="Notifications">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+              <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.7 21a2 2 0 0 1-3.4 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <span class="badge" id="notifBadge">3</span>
+          </button>
+          <div class="dropdown-panel notif-panel" id="notifPanel" role="menu">
+            <div class="notif-panel-head">
+              <h4>Notifications</h4>
+            </div>
+            <ul class="notif-list" id="notifList"><!-- populated by script.js --></ul>
+          </div>
+        </div>
+
+        <a href="#order" class="btn btn-primary nav-cta">Start an order</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Same-day delivery, seven days a week</p>
+        <h1>Farm-fresh groceries, on your doorstep by evening.</h1>
+        <p class="hero-sub">
+          FreshDrop picks, packs, and delivers produce, pantry staples, and
+          everyday essentials from local growers — usually within three hours
+          of ordering.
+        </p>
+        <div class="hero-actions">
+          <a href="#order" class="btn btn-primary">Start an order</a>
+          <a href="#track" class="btn btn-ghost">Track an order</a>
+        </div>
+
+        <dl class="hero-stats">
+          <div>
+            <dt>3 hrs</dt>
+            <dd>average delivery window</dd>
+          </div>
+          <div>
+            <dt>120+</dt>
+            <dd>local farms &amp; suppliers</dd>
+          </div>
+          <div>
+            <dt>4.9/5</dt>
+            <dd>customer rating</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="blob blob-a"></div>
+        <div class="blob blob-b"></div>
+        <div class="crate">
+          <div class="crate-row">
+            <span class="produce carrot"></span>
+            <span class="produce tomato"></span>
+            <span class="produce leaf"></span>
+          </div>
+          <div class="crate-row">
+            <span class="produce lemon"></span>
+            <span class="produce berry"></span>
+          </div>
+          <div class="crate-slats"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Categories ===== -->
+  <section class="categories" id="categories">
+    <div class="section-inner">
+      <h2>What we deliver</h2>
+      <p class="section-lead">Six ways to fill your basket, sourced fresh and packed cold.</p>
+
+      <div class="category-grid" id="categoryGrid">
+        <article class="category-card" data-category="produce">
+          <div class="category-icon" style="background:#E7F5EC;">??</div>
+          <h3>Fruits &amp; Vegetables</h3>
+          <p>Seasonal produce picked within 24 hours of your delivery.</p>
+          <button class="card-link" data-order-category="produce">Order this <span aria-hidden="true">?</span></button>
+        </article>
+
+        <article class="category-card" data-category="bakery">
+          <div class="category-icon" style="background:#FDF0E3;">??</div>
+          <h3>Bakery</h3>
+          <p>Fresh-baked bread, pastries, and morning essentials.</p>
+          <button class="card-link" data-order-category="bakery">Order this <span aria-hidden="true">?</span></button>
+        </article>
+
+        <article class="category-card" data-category="dairy">
+          <div class="category-icon" style="background:#E9F1FB;">??</div>
+          <h3>Dairy &amp; Eggs</h3>
+          <p>Milk, cheese, and farm eggs, kept cold from source to door.</p>
+          <button class="card-link" data-order-category="dairy">Order this <span aria-hidden="true">?</span></button>
+        </article>
+
+        <article class="category-card" data-category="meat">
+          <div class="category-icon" style="background:#FBEAEA;">??</div>
+          <h3>Meat &amp; Seafood</h3>
+          <p>Butcher-cut meat and fresh seafood, delivered chilled.</p>
+          <button class="card-link" data-order-category="meat">Order this <span aria-hidden="true">?</span></button>
+        </article>
+
+        <article class="category-card" data-category="pantry">
+          <div class="category-icon" style="background:#F0EAFB;">??</div>
+          <h3>Pantry Staples</h3>
+          <p>Rice, oils, spices, and everyday cooking basics.</p>
+          <button class="card-link" data-order-category="pantry">Order this <span aria-hidden="true">?</span></button>
+        </article>
+
+        <article class="category-card" data-category="beverages">
+          <div class="category-icon" style="background:#EAF7F2;">??</div>
+          <h3>Beverages</h3>
+          <p>Juices, teas, and coffee, sourced from local roasters.</p>
+          <button class="card-link" data-order-category="beverages">Order this <span aria-hidden="true">?</span></button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reviews / Testimonials ===== -->
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="reviews-head">
+        <div>
+          <h2>What customers say</h2>
+          <p class="section-lead">Real feedback from FreshDrop households.</p>
+        </div>
+        <button class="btn btn-ghost" id="writeReviewBtn">Write a review</button>
+      </div>
+
+      <div class="review-grid" id="reviewGrid"><!-- populated by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <h2>How FreshDrop works</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>Tell us what you need</h3>
+          <p>Choose a category and delivery details in a few quick steps.</p>
+        </div>
+        <div class="step">
+          <h3>We hand-pick it fresh</h3>
+          <p>Our team sources each item from local farms and trusted suppliers.</p>
+        </div>
+        <div class="step">
+          <h3>It arrives at your door</h3>
+          <p>Track your delivery in real time, right up to your doorstep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Order Workflow (multi-step) ===== -->
+  <section class="order" id="order">
+    <div class="section-inner">
+      <h2>Place an order</h2>
+      <p class="section-lead">A few quick steps and we'll have it packed and on the way.</p>
+
+      <div class="order-panel">
+        <!-- Stepper progress -->
+        <ol class="stepper" id="stepper">
+          <li class="stepper-item active" data-step="1">
+            <span class="stepper-dot">1</span>
+            <span class="stepper-label">Basket</span>
+          </li>
+          <li class="stepper-item" data-step="2">
+            <span class="stepper-dot">2</span>
+            <span class="stepper-label">Delivery</span>
+          </li>
+          <li class="stepper-item" data-step="3">
+            <span class="stepper-dot">3</span>
+            <span class="stepper-label">Review</span>
+          </li>
+        </ol>
+
+        <form class="order-form" id="orderForm" novalidate>
+          <!-- Step 1: Basket -->
+          <div class="form-step active" data-step="1">
+            <div class="form-row">
+              <label for="category">Category</label>
+              <select id="category" name="category" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="produce">Fruits &amp; Vegetables</option>
+                <option value="bakery">Bakery</option>
+                <option value="dairy">Dairy &amp; Eggs</option>
+                <option value="meat">Meat &amp; Seafood</option>
+                <option value="pantry">Pantry Staples</option>
+                <option value="beverages">Beverages</option>
+                <option value="mixed">A bit of everything</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="notes">Items you'd like</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="List the items you need — e.g. 2 lb tomatoes, sourdough loaf, dozen eggs" required></textarea>
+            </div>
+
+            <div class="form-row">
+              <label for="quantity">Estimated basket size</label>
+              <select id="quantity" name="quantity" required>
+                <option value="" disabled selected>Choose a basket size</option>
+                <option value="small">Small (1–5 items)</option>
+                <option value="medium">Medium (6–15 items)</option>
+                <option value="large">Large (16+ items)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 2: Delivery details -->
+          <div class="form-step" data-step="2">
+            <div class="form-row">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Jordan Lee" required />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="jordan@example.com" required />
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required />
+            </div>
+
+            <div class="form-row">
+              <label for="address">Delivery address</label>
+              <input type="text" id="address" name="address" placeholder="123 Maple Street, Springfield" required />
+            </div>
+
+            <div class="form-row">
+              <label for="deliveryTime">Preferred delivery window</label>
+              <select id="deliveryTime" name="deliveryTime" required>
+                <option value="" disabled selected>Choose a window</option>
+                <option value="morning">Morning (8am – 11am)</option>
+                <option value="afternoon">Afternoon (12pm – 4pm)</option>
+                <option value="evening">Evening (5pm – 9pm)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 3: Review & confirm -->
+          <div class="form-step" data-step="3">
+            <div class="review-summary" id="reviewSummary">
+              <!-- populated by script.js -->
+            </div>
+            <label class="checkbox-row">
+              <input type="checkbox" id="confirmAccuracy" required />
+              I confirm these order details are correct.
+            </label>
+          </div>
+
+          <!-- Step controls -->
+          <div class="form-controls">
+            <button type="button" class="btn btn-ghost" id="prevStepBtn" disabled>Back</button>
+            <button type="button" class="btn btn-primary" id="nextStepBtn">Continue</button>
+            <button type="submit" class="btn btn-primary" id="submitOrderBtn" hidden>Confirm order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Order Tracking ===== -->
+  <section class="tracking" id="track">
+    <div class="section-inner">
+      <h2>Track your order</h2>
+      <p class="section-lead">Enter the order ID from your confirmation to see live status.</p>
+
+      <div class="tracking-panel">
+        <form class="tracking-form" id="trackingForm" novalidate>
+          <input type="text" id="trackingId" name="trackingId" placeholder="e.g. FD-4821" aria-label="Order ID" required />
+          <button type="submit" class="btn btn-primary">Track order</button>
+        </form>
+        <p class="tracking-hint">Try a sample ID: <button type="button" class="link-btn" id="sampleIdBtn">FD-1001</button></p>
+
+        <div class="tracking-result" id="trackingResult" hidden>
+          <div class="tracking-result-head">
+            <div>
+              <span class="tracking-order-id" id="trackingOrderId"></span>
+              <p class="tracking-status-text" id="trackingStatusText"></p>
+            </div>
+          </div>
+
+          <ol class="timeline" id="timeline">
+            <li class="timeline-step" data-status="placed">
+              <span class="timeline-dot"></span>
+              <div>
+                <h4>Order placed</h4>
+                <p>We've received your order and confirmed the details.</p>
+              </div>
+            </li>
+            <li class="timeline-step" data-status="preparing">
+              <span class="timeline-dot"></span>
+              <div>
+                <h4>Preparing your basket</h4>
+                <p>Your items are being hand-picked and packed cold.</p>
+              </div>
+            </li>
+            <li class="timeline-step" data-status="out-for-delivery">
+              <span class="timeline-dot"></span>
+              <div>
+                <h4>Out for delivery</h4>
+                <p>Your driver is on the way to your address.</p>
+              </div>
+            </li>
+            <li class="timeline-step" data-status="delivered">
+              <span class="timeline-dot"></span>
+              <div>
+                <h4>Delivered</h4>
+                <p>Enjoy your fresh groceries!</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer / Contact ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="section-inner footer-inner">
+      <div>
+        <a href="#top" class="brand footer-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="26" height="26">
+              <path d="M20 4C12 10 8 18 8 24a12 12 0 0 0 24 0c0-6-4-14-12-20Z" fill="currentColor"/>
+              <path d="M20 12v20" stroke="#1B4332" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          FreshDrop
+        </a>
+        <p class="footer-tagline">Fresh groceries, delivered with care.</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Get in touch</h4>
+        <p>support@freshdrop.example</p>
+        <p>(555) 987-6543</p>
+        <p>Mon–Sun, 7am–9pm</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#categories">Categories</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#order">Order</a>
+        <a href="#track">Track order</a>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 FreshDrop. All rights reserved.</p>
+  </footer>
+
+  <!-- ===== Write a review modal ===== -->
+  <div class="modal-overlay" id="reviewModalOverlay">
+    <div class="modal" role="dialog" aria-labelledby="reviewModalTitle" aria-modal="true">
+      <button class="modal-close" id="reviewModalClose" aria-label="Close">&times;</button>
+      <h3 id="reviewModalTitle">Write a review</h3>
+      <form id="reviewForm" novalidate>
+        <div class="form-row">
+          <label for="reviewName">Your name</label>
+          <input type="text" id="reviewName" name="reviewName" placeholder="Your name" required />
+        </div>
+
+        <div class="form-row">
+          <label>Rating</label>
+          <div class="star-rating" id="starRating" data-value="0">
+            <button type="button" class="star" data-value="1" aria-label="1 star">?</button>
+            <button type="button" class="star" data-value="2" aria-label="2 stars">?</button>
+            <button type="button" class="star" data-value="3" aria-label="3 stars">?</button>
+            <button type="button" class="star" data-value="4" aria-label="4 stars">?</button>
+            <button type="button" class="star" data-value="5" aria-label="5 stars">?</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="reviewText">Your review</label>
+          <textarea id="reviewText" name="reviewText" rows="4" placeholder="Tell us about your delivery experience" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit review</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Order success modal ===== -->
+  <div class="modal-overlay" id="orderModalOverlay">
+    <div class="modal" role="alertdialog" aria-labelledby="orderModalTitle" aria-modal="true">
+      <div class="popup-icon">?</div>
+      <h3 id="orderModalTitle">Order confirmed!</h3>
+      <p>Your order ID is</p>
+      <p class="order-id-display" id="orderIdDisplay"></p>
+      <p class="modal-note">Save this ID to track your delivery below.</p>
+      <button class="btn btn-primary btn-block" id="orderModalClose">Done</button>
+    </div>
+  </div>
+
+  <!-- ===== Toast container ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
