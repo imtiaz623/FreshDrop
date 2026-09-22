@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FreshDrop — Interactivity
+   FreshDrop \u2014 Interactivity
    1. Mobile hamburger menu
    2. "More" categories dropdown + notification bell dropdown
    3. Reviews: render + "Write a review" modal
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const reviews = [
     { name: "Amara Okafor", initials: "AO", rating: 5, text: "Groceries arrived cold and perfectly packed, well within the promised window. My produce has never looked fresher.", meta: "Verified customer" },
-    { name: "Daniel Cho", initials: "DC", rating: 5, text: "The delivery tracker made it easy to plan my evening — I knew exactly when to expect the driver.", meta: "Verified customer" },
+    { name: "Daniel Cho", initials: "DC", rating: 5, text: "The delivery tracker made it easy to plan my evening \u2014 I knew exactly when to expect the driver.", meta: "Verified customer" },
     { name: "Priya Nair", initials: "PN", rating: 4, text: "Great selection of pantry staples and the bakery items are always fresh. Wish there were more delivery windows on weekends.", meta: "Verified customer" }
   ];
 
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderStars(rating) {
     let stars = "";
     for (let i = 1; i <= 5; i++) {
-      stars += i <= rating ? "?" : "?";
+      stars += i <= rating ? "\u2605" : "\u2606";
     }
     return stars;
   }
@@ -354,23 +354,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const categorySelect = document.getElementById("category");
     const categoryLabel = categorySelect.options[categorySelect.selectedIndex]
       ? categorySelect.options[categorySelect.selectedIndex].text
-      : "—";
+      : "\u2014";
 
     const quantitySelect = document.getElementById("quantity");
     const quantityLabel = quantitySelect.options[quantitySelect.selectedIndex]
       ? quantitySelect.options[quantitySelect.selectedIndex].text
-      : "—";
+      : "\u2014";
 
     const timeSelect = document.getElementById("deliveryTime");
     const timeLabel = timeSelect.options[timeSelect.selectedIndex]
       ? timeSelect.options[timeSelect.selectedIndex].text
-      : "—";
+      : "\u2014";
 
     const rows = [
       ["Category", categoryLabel],
       ["Basket size", quantityLabel],
-      ["Name", document.getElementById("name").value || "—"],
-      ["Address", document.getElementById("address").value || "—"],
+      ["Name", document.getElementById("name").value || "\u2014"],
+      ["Address", document.getElementById("address").value || "\u2014"],
       ["Delivery window", timeLabel]
     ];
 
@@ -472,10 +472,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const statusOrder = ["placed", "preparing", "out-for-delivery", "delivered"];
   const statusMessages = {
-    placed: "Order received — preparing to pick your items.",
+    placed: "Order received \u2014 preparing to pick your items.",
     preparing: "Your basket is being hand-picked and packed cold.",
     "out-for-delivery": "Your driver is on the way!",
-    delivered: "Delivered — enjoy your fresh groceries!"
+    delivered: "Delivered \u2014 enjoy your fresh groceries!"
   };
 
   function deterministicStatusFromId(id) {
@@ -543,4 +543,87 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     navbar.style.boxShadow = window.scrollY > 8 ? "0 2px 12px rgba(27, 67, 50, 0.08)" : "none";
   });
+
+  /* ============================================================
+     Dark mode toggle (persisted via localStorage)
+     ============================================================ */
+  const themeToggle = document.getElementById("themeToggle");
+  const THEME_KEY = "freshdrop-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+  }
+
+  (function initTheme() {
+    let saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (err) { saved = null; }
+
+    if (saved === "dark" || saved === "light") {
+      applyTheme(saved);
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      applyTheme("dark");
+    } else {
+      applyTheme("light");
+    }
+  })();
+
+  themeToggle.addEventListener("click", function () {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const next = isDark ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem(THEME_KEY, next); } catch (err) { /* storage unavailable, ignore */ }
+  });
+
+  /* ============================================================
+     FAQ accordion
+     ============================================================ */
+  document.querySelectorAll(".accordion-header").forEach(function (header) {
+    const body = header.nextElementSibling;
+
+    header.addEventListener("click", function () {
+      const isOpen = header.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+        header.setAttribute("aria-expanded", "false");
+        body.style.maxHeight = null;
+      } else {
+        header.setAttribute("aria-expanded", "true");
+        body.style.maxHeight = body.scrollHeight + "px";
+      }
+    });
+  });
+
+  /* ============================================================
+     Back to top button
+     ============================================================ */
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", function () {
+    backToTop.classList.toggle("visible", window.scrollY > 480);
+  });
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* ============================================================
+     Newsletter signup (footer)
+     ============================================================ */
+  const newsletterForm = document.getElementById("newsletterForm");
+
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const emailField = document.getElementById("newsletterEmail");
+
+      if (!emailField.checkValidity()) {
+        emailField.reportValidity();
+        return;
+      }
+
+      showToast("You're subscribed! Watch your inbox for weekly picks.", "success");
+      newsletterForm.reset();
+    });
+  }
 });
