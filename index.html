@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FreshDrop — Fresh Groceries, Delivered Today</title>
+  <title>FreshDrop &#8212; Fresh Groceries, Delivered Today</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -28,6 +28,7 @@
         <a href="#how-it-works">How it works</a>
         <a href="#reviews">Reviews</a>
         <a href="#track">Track order</a>
+        <a href="#faq">FAQ</a>
 
         <!-- Collapsible "More" dropdown for categories -->
         <div class="dropdown" id="moreDropdown">
@@ -36,12 +37,12 @@
             <svg class="chev" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="dropdown-panel" id="morePanel" role="menu">
-            <a href="#categories" data-category="produce" role="menuitem">?? Fruits &amp; Vegetables</a>
-            <a href="#categories" data-category="bakery" role="menuitem">?? Bakery</a>
-            <a href="#categories" data-category="dairy" role="menuitem">?? Dairy &amp; Eggs</a>
-            <a href="#categories" data-category="meat" role="menuitem">?? Meat &amp; Seafood</a>
-            <a href="#categories" data-category="pantry" role="menuitem">?? Pantry Staples</a>
-            <a href="#categories" data-category="beverages" role="menuitem">?? Beverages</a>
+            <a href="#categories" data-category="produce" role="menuitem">&#129388; Fruits &amp; Vegetables</a>
+            <a href="#categories" data-category="bakery" role="menuitem">&#127838; Bakery</a>
+            <a href="#categories" data-category="dairy" role="menuitem">&#129371; Dairy &amp; Eggs</a>
+            <a href="#categories" data-category="meat" role="menuitem">&#127831; Meat &amp; Seafood</a>
+            <a href="#categories" data-category="pantry" role="menuitem">&#129530; Pantry Staples</a>
+            <a href="#categories" data-category="beverages" role="menuitem">&#129475; Beverages</a>
           </div>
         </div>
       </nav>
@@ -64,6 +65,17 @@
           </div>
         </div>
 
+        <!-- Dark mode toggle -->
+        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
         <a href="#order" class="btn btn-primary nav-cta">Start an order</a>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
@@ -83,7 +95,7 @@
         <h1>Farm-fresh groceries, on your doorstep by evening.</h1>
         <p class="hero-sub">
           FreshDrop picks, packs, and delivers produce, pantry staples, and
-          everyday essentials from local growers — usually within three hours
+          everyday essentials from local growers &#8212; usually within three hours
           of ordering.
         </p>
         <div class="hero-actions">
@@ -126,6 +138,85 @@
     </div>
   </section>
 
+  <!-- ===== Delivery Types ===== -->
+  <section class="delivery-types" id="delivery-types">
+    <div class="section-inner">
+      <h2>Choose how it arrives</h2>
+      <p class="section-lead">Pick the delivery speed that fits your day.</p>
+
+      <div class="delivery-grid">
+        <article class="delivery-card">
+          <div class="delivery-art" aria-hidden="true">
+            <svg viewBox="0 0 140 100" width="100%" height="100%">
+              <ellipse cx="70" cy="88" rx="52" ry="6" fill="#E7F5EC"/>
+              <rect x="10" y="24" width="78" height="48" rx="10" fill="#40916C"/>
+              <rect x="20" y="36" width="58" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
+              <rect x="20" y="46" width="58" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
+              <rect x="20" y="56" width="40" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
+              <path d="M88 38h20a8 8 0 0 1 8 8v14a4 4 0 0 1-4 4H88Z" fill="#1B4332"/>
+              <rect x="98" y="44" width="14" height="12" rx="2" fill="#95D5B2"/>
+              <circle cx="40" cy="80" r="13" fill="#1B4332"/>
+              <circle cx="40" cy="80" r="5" fill="#F8FAF6"/>
+              <circle cx="104" cy="80" r="13" fill="#1B4332"/>
+              <circle cx="104" cy="80" r="5" fill="#F8FAF6"/>
+              <circle cx="49" cy="20" r="11" fill="#95D5B2"/>
+              <path d="M45 20l3 3 6-6" stroke="#1B4332" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="delivery-badge">Most popular</span>
+          <h3>Standard delivery</h3>
+          <p>Arrives within a 3-hour window you choose, at no extra cost.</p>
+        </article>
+
+        <article class="delivery-card">
+          <div class="delivery-art" aria-hidden="true">
+            <svg viewBox="0 0 140 100" width="100%" height="100%">
+              <ellipse cx="70" cy="88" rx="52" ry="6" fill="#FDF0E3"/>
+              <path d="M18 62l6-4M14 70l7-4M22 78l6-4" stroke="#E0A340" stroke-width="4" stroke-linecap="round"/>
+              <path d="M36 78c0-14 8-24 8-24h14l6 12h8a8 8 0 0 1 8 8v4" stroke="#40916C" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="70" y="46" width="24" height="18" rx="5" fill="#95D5B2"/>
+              <rect x="52" y="50" width="12" height="4" rx="2" fill="#1B4332"/>
+              <circle cx="36" cy="80" r="13" fill="#1B4332"/>
+              <circle cx="36" cy="80" r="5" fill="#F8FAF6"/>
+              <circle cx="98" cy="80" r="13" fill="#1B4332"/>
+              <circle cx="98" cy="80" r="5" fill="#F8FAF6"/>
+              <path d="M92 78h12" stroke="#1B4332" stroke-width="6" stroke-linecap="round"/>
+              <path d="M104 78v-14" stroke="#1B4332" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="delivery-badge accent">Fastest</span>
+          <h3>Express delivery</h3>
+          <p>At your door in under 60 minutes for urgent essentials.</p>
+        </article>
+
+        <article class="delivery-card">
+          <div class="delivery-art" aria-hidden="true">
+            <svg viewBox="0 0 140 100" width="100%" height="100%">
+              <ellipse cx="70" cy="88" rx="52" ry="6" fill="#E9F1FB"/>
+              <rect x="24" y="16" width="92" height="66" rx="10" fill="#F8FAF6" stroke="#E1E8E2" stroke-width="2"/>
+              <path d="M24 26a10 10 0 0 1 10-10h72a10 10 0 0 1 10 10v6H24Z" fill="#40916C"/>
+              <rect x="40" y="10" width="6" height="12" rx="3" fill="#1B4332"/>
+              <rect x="94" y="10" width="6" height="12" rx="3" fill="#1B4332"/>
+              <circle cx="44" cy="44" r="4" fill="#B7CFC2"/>
+              <circle cx="60" cy="44" r="4" fill="#B7CFC2"/>
+              <circle cx="76" cy="44" r="4" fill="#B7CFC2"/>
+              <circle cx="92" cy="44" r="4" fill="#B7CFC2"/>
+              <circle cx="44" cy="58" r="4" fill="#B7CFC2"/>
+              <circle cx="60" cy="58" r="9" fill="#E0A340"/>
+              <circle cx="76" cy="58" r="4" fill="#B7CFC2"/>
+              <circle cx="92" cy="58" r="4" fill="#B7CFC2"/>
+              <circle cx="104" cy="70" r="15" fill="#F8FAF6" stroke="#40916C" stroke-width="3"/>
+              <path d="M104 62v8l6 4" stroke="#1B4332" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="delivery-badge">Flexible</span>
+          <h3>Scheduled delivery</h3>
+          <p>Plan ahead and pick the exact day and time slot that suits you.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Categories ===== -->
   <section class="categories" id="categories">
     <div class="section-inner">
@@ -134,45 +225,45 @@
 
       <div class="category-grid" id="categoryGrid">
         <article class="category-card" data-category="produce">
-          <div class="category-icon" style="background:#E7F5EC;">??</div>
+          <div class="category-icon" style="background:#E7F5EC;">&#129388;</div>
           <h3>Fruits &amp; Vegetables</h3>
           <p>Seasonal produce picked within 24 hours of your delivery.</p>
-          <button class="card-link" data-order-category="produce">Order this <span aria-hidden="true">?</span></button>
+          <button class="card-link" data-order-category="produce">Order this <span aria-hidden="true">&#8594;</span></button>
         </article>
 
         <article class="category-card" data-category="bakery">
-          <div class="category-icon" style="background:#FDF0E3;">??</div>
+          <div class="category-icon" style="background:#FDF0E3;">&#127838;</div>
           <h3>Bakery</h3>
           <p>Fresh-baked bread, pastries, and morning essentials.</p>
-          <button class="card-link" data-order-category="bakery">Order this <span aria-hidden="true">?</span></button>
+          <button class="card-link" data-order-category="bakery">Order this <span aria-hidden="true">&#8594;</span></button>
         </article>
 
         <article class="category-card" data-category="dairy">
-          <div class="category-icon" style="background:#E9F1FB;">??</div>
+          <div class="category-icon" style="background:#E9F1FB;">&#129371;</div>
           <h3>Dairy &amp; Eggs</h3>
           <p>Milk, cheese, and farm eggs, kept cold from source to door.</p>
-          <button class="card-link" data-order-category="dairy">Order this <span aria-hidden="true">?</span></button>
+          <button class="card-link" data-order-category="dairy">Order this <span aria-hidden="true">&#8594;</span></button>
         </article>
 
         <article class="category-card" data-category="meat">
-          <div class="category-icon" style="background:#FBEAEA;">??</div>
+          <div class="category-icon" style="background:#FBEAEA;">&#127831;</div>
           <h3>Meat &amp; Seafood</h3>
           <p>Butcher-cut meat and fresh seafood, delivered chilled.</p>
-          <button class="card-link" data-order-category="meat">Order this <span aria-hidden="true">?</span></button>
+          <button class="card-link" data-order-category="meat">Order this <span aria-hidden="true">&#8594;</span></button>
         </article>
 
         <article class="category-card" data-category="pantry">
-          <div class="category-icon" style="background:#F0EAFB;">??</div>
+          <div class="category-icon" style="background:#F0EAFB;">&#129530;</div>
           <h3>Pantry Staples</h3>
           <p>Rice, oils, spices, and everyday cooking basics.</p>
-          <button class="card-link" data-order-category="pantry">Order this <span aria-hidden="true">?</span></button>
+          <button class="card-link" data-order-category="pantry">Order this <span aria-hidden="true">&#8594;</span></button>
         </article>
 
         <article class="category-card" data-category="beverages">
-          <div class="category-icon" style="background:#EAF7F2;">??</div>
+          <div class="category-icon" style="background:#EAF7F2;">&#129475;</div>
           <h3>Beverages</h3>
           <p>Juices, teas, and coffee, sourced from local roasters.</p>
-          <button class="card-link" data-order-category="beverages">Order this <span aria-hidden="true">?</span></button>
+          <button class="card-link" data-order-category="beverages">Order this <span aria-hidden="true">&#8594;</span></button>
         </article>
       </div>
     </div>
@@ -256,15 +347,15 @@
 
             <div class="form-row">
               <label for="notes">Items you'd like</label>
-              <textarea id="notes" name="notes" rows="4" placeholder="List the items you need — e.g. 2 lb tomatoes, sourdough loaf, dozen eggs" required></textarea>
+              <textarea id="notes" name="notes" rows="4" placeholder="List the items you need &#8212; e.g. 2 lb tomatoes, sourdough loaf, dozen eggs" required></textarea>
             </div>
 
             <div class="form-row">
               <label for="quantity">Estimated basket size</label>
               <select id="quantity" name="quantity" required>
                 <option value="" disabled selected>Choose a basket size</option>
-                <option value="small">Small (1–5 items)</option>
-                <option value="medium">Medium (6–15 items)</option>
+                <option value="small">Small (1&#8211;5 items)</option>
+                <option value="medium">Medium (6&#8211;15 items)</option>
                 <option value="large">Large (16+ items)</option>
               </select>
             </div>
@@ -296,9 +387,9 @@
               <label for="deliveryTime">Preferred delivery window</label>
               <select id="deliveryTime" name="deliveryTime" required>
                 <option value="" disabled selected>Choose a window</option>
-                <option value="morning">Morning (8am – 11am)</option>
-                <option value="afternoon">Afternoon (12pm – 4pm)</option>
-                <option value="evening">Evening (5pm – 9pm)</option>
+                <option value="morning">Morning (8am &#8211; 11am)</option>
+                <option value="afternoon">Afternoon (12pm &#8211; 4pm)</option>
+                <option value="evening">Evening (5pm &#8211; 9pm)</option>
               </select>
             </div>
           </div>
@@ -381,6 +472,66 @@
     </div>
   </section>
 
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="section-inner">
+      <h2>Frequently asked questions</h2>
+      <p class="section-lead">Everything you need to know before your first order.</p>
+
+      <div class="accordion" id="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>What areas does FreshDrop deliver to?</span>
+            <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <p>We currently deliver across the greater metro area and surrounding suburbs. Enter your address at checkout and we'll confirm coverage before you complete your order.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>How fast will my order arrive?</span>
+            <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <p>Most orders arrive within 3 hours during your selected delivery window. You can follow every stage live in the Track order section once you have your order ID.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>Is there a minimum order amount?</span>
+            <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <p>No minimum. Order a single item or a full weekly basket &#8212; the delivery process is the same either way.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>Can I change or cancel my order?</span>
+            <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <p>Yes &#8212; reach out through the contact details below any time before your order is marked "Out for delivery" and our team will update or cancel it for you.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false">
+            <span>What payment methods are accepted?</span>
+            <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-body">
+            <p>All major debit and credit cards, plus cash on delivery in select areas. You'll choose your preferred method after confirming your basket.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Footer / Contact ===== -->
   <footer class="site-footer" id="contact">
     <div class="section-inner footer-inner">
@@ -401,7 +552,7 @@
         <h4>Get in touch</h4>
         <p>support@freshdrop.example</p>
         <p>(555) 987-6543</p>
-        <p>Mon–Sun, 7am–9pm</p>
+        <p>Mon&#8211;Sun, 7am&#8211;9pm</p>
       </div>
 
       <div class="footer-links">
@@ -410,10 +561,27 @@
         <a href="#reviews">Reviews</a>
         <a href="#order">Order</a>
         <a href="#track">Track order</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay in the loop</h4>
+        <p class="footer-tagline">Seasonal picks and delivery updates, once a week.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="you@example.com" aria-label="Email address" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
       </div>
     </div>
-    <p class="footer-bottom">© 2026 FreshDrop. All rights reserved.</p>
+    <p class="footer-bottom">&#169; 2026 FreshDrop. All rights reserved.</p>
   </footer>
+
+  <!-- ===== Back to top ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
 
   <!-- ===== Write a review modal ===== -->
   <div class="modal-overlay" id="reviewModalOverlay">
@@ -429,11 +597,11 @@
         <div class="form-row">
           <label>Rating</label>
           <div class="star-rating" id="starRating" data-value="0">
-            <button type="button" class="star" data-value="1" aria-label="1 star">?</button>
-            <button type="button" class="star" data-value="2" aria-label="2 stars">?</button>
-            <button type="button" class="star" data-value="3" aria-label="3 stars">?</button>
-            <button type="button" class="star" data-value="4" aria-label="4 stars">?</button>
-            <button type="button" class="star" data-value="5" aria-label="5 stars">?</button>
+            <button type="button" class="star" data-value="1" aria-label="1 star">&#9733;</button>
+            <button type="button" class="star" data-value="2" aria-label="2 stars">&#9733;</button>
+            <button type="button" class="star" data-value="3" aria-label="3 stars">&#9733;</button>
+            <button type="button" class="star" data-value="4" aria-label="4 stars">&#9733;</button>
+            <button type="button" class="star" data-value="5" aria-label="5 stars">&#9733;</button>
           </div>
         </div>
 
@@ -450,7 +618,7 @@
   <!-- ===== Order success modal ===== -->
   <div class="modal-overlay" id="orderModalOverlay">
     <div class="modal" role="alertdialog" aria-labelledby="orderModalTitle" aria-modal="true">
-      <div class="popup-icon">?</div>
+      <div class="popup-icon">&#10003;</div>
       <h3 id="orderModalTitle">Order confirmed!</h3>
       <p>Your order ID is</p>
       <p class="order-id-display" id="orderIdDisplay"></p>
