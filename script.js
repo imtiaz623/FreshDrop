@@ -626,4 +626,213 @@ document.addEventListener("DOMContentLoaded", function () {
       newsletterForm.reset();
     });
   }
+
+  /* ============================================================
+     Auto-scrolling banner slider
+     ============================================================ */
+  const sliderTrack = document.getElementById("sliderTrack");
+  const sliderSlides = document.querySelectorAll(".slide");
+  const sliderDots = document.querySelectorAll(".slider-dot");
+  const sliderPrev = document.getElementById("sliderPrev");
+  const sliderNext = document.getElementById("sliderNext");
+  const bannerSlider = document.getElementById("bannerSlider");
+
+  if (sliderTrack && sliderSlides.length) {
+    let currentSlide = 0;
+    let sliderTimer = null;
+    const SLIDE_INTERVAL = 5000;
+
+    function goToSlide(index) {
+      currentSlide = (index + sliderSlides.length) % sliderSlides.length;
+      sliderTrack.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
+      sliderDots.forEach(function (dot, i) {
+        dot.classList.toggle("active", i === currentSlide);
+      });
+    }
+
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      sliderTimer = setInterval(nextSlide, SLIDE_INTERVAL);
+    }
+
+    function stopAutoSlide() {
+      if (sliderTimer) clearInterval(sliderTimer);
+    }
+
+    sliderNext.addEventListener("click", function () { nextSlide(); startAutoSlide(); });
+    sliderPrev.addEventListener("click", function () { prevSlide(); startAutoSlide(); });
+
+    sliderDots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        goToSlide(parseInt(dot.getAttribute("data-slide"), 10));
+        startAutoSlide();
+      });
+    });
+
+    bannerSlider.addEventListener("mouseenter", stopAutoSlide);
+    bannerSlider.addEventListener("mouseleave", startAutoSlide);
+    bannerSlider.addEventListener("focusin", stopAutoSlide);
+    bannerSlider.addEventListener("focusout", startAutoSlide);
+
+    goToSlide(0);
+    startAutoSlide();
+  }
+
+  /* ============================================================
+     WhatsApp direct order buttons (per category + floating button)
+     ============================================================ */
+  const WHATSAPP_NUMBER = "911234567890"; // TODO: replace with your real WhatsApp business number
+
+  const categoryLabels = {
+    produce: "Fruits & Vegetables",
+    bakery: "Bakery",
+    dairy: "Dairy & Eggs",
+    meat: "Meat & Seafood",
+    pantry: "Pantry Staples",
+    beverages: "Beverages"
+  };
+
+  document.querySelectorAll(".whatsapp-btn[data-whatsapp-category]").forEach(function (btn) {
+    const category = btn.getAttribute("data-whatsapp-category");
+    const label = categoryLabels[category] || category;
+    const message = "Hi FreshDrop! I'd like to place an order from " + label + ".";
+    btn.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  });
+
+  /* ============================================================
+     Category search & filter
+     ============================================================ */
+  const categorySearch = document.getElementById("categorySearch");
+  const filterChips = document.querySelectorAll(".chip");
+  const allCategoryCards = document.querySelectorAll(".category-card");
+  const noResults = document.getElementById("noResults");
+
+  let activeFilter = "all";
+
+  function applyCategoryFilters() {
+    const query = (categorySearch.value || "").trim().toLowerCase();
+    let visibleCount = 0;
+
+    allCategoryCards.forEach(function (card) {
+      const cardCategory = card.getAttribute("data-category");
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const desc = card.querySelector("p").textContent.toLowerCase();
+
+      const matchesFilter = activeFilter === "all" || cardCategory === activeFilter;
+      const matchesSearch = !query || title.includes(query) || desc.includes(query);
+      const show = matchesFilter && matchesSearch;
+
+      card.classList.toggle("filtered-out", !show);
+      if (show) visibleCount++;
+    });
+
+    noResults.hidden = visibleCount !== 0;
+  }
+
+  if (categorySearch) {
+    categorySearch.addEventListener("input", applyCategoryFilters);
+  }
+
+  filterChips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      filterChips.forEach(function (c) { c.classList.remove("active"); });
+      chip.classList.add("active");
+      activeFilter = chip.getAttribute("data-filter");
+      applyCategoryFilters();
+    });
+  });
+
+  /* ============================================================
+     Rider registration form (with CV/image upload)
+     ============================================================ */
+  const riderForm = document.getElementById("riderForm");
+  const riderSuccess = document.getElementById("riderSuccess");
+  const riderApplyAgain = document.getElementById("riderApplyAgain");
+  const riderFile = document.getElementById("riderFile");
+  const fileUploadLabel = document.getElementById("fileUploadLabel");
+  const fileUploadText = document.getElementById("fileUploadText");
+  const riderSuccessText = document.getElementById("riderSuccessText");
+
+  if (riderFile) {
+    riderFile.addEventListener("change", function () {
+      if (riderFile.files && riderFile.files.length > 0) {
+        fileUploadText.textContent = riderFile.files[0].name;
+        fileUploadLabel.classList.add("has-file");
+      } else {
+        fileUploadText.textContent = "Choose a file (PDF, DOC, or image)";
+        fileUploadLabel.classList.remove("has-file");
+      }
+    });
+  }
+
+  if (riderForm) {
+    riderForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!riderForm.checkValidity()) {
+        riderForm.reportValidity();
+        return;
+      }
+
+      const name = document.getElementById("riderName").value.trim();
+      riderSuccessText.textContent = "Thanks, " + name + "! We've received your application and our team will reach out within 2 business days.";
+
+      riderForm.hidden = true;
+      riderSuccess.hidden = false;
+      showToast("Rider application submitted successfully!", "success");
+    });
+  }
+
+  if (riderApplyAgain) {
+    riderApplyAgain.addEventListener("click", function () {
+      riderForm.reset();
+      fileUploadText.textContent = "Choose a file (PDF, DOC, or image)";
+      fileUploadLabel.classList.remove("has-file");
+      riderSuccess.hidden = true;
+      riderForm.hidden = false;
+    });
+  }
+
+  /* ============================================================
+     Delivery area checker
+     ============================================================ */
+  const checkerForm = document.getElementById("checkerForm");
+  const checkerInput = document.getElementById("checkerInput");
+  const checkerResult = document.getElementById("checkerResult");
+
+  const serviceableAreas = [
+    "downtown", "north side", "south side", "east end", "west end",
+    "lakeview", "springfield", "riverside", "maple street",
+    "400001", "400002", "400003", "10001", "10002", "90001"
+  ];
+
+  if (checkerForm) {
+    checkerForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const query = checkerInput.value.trim().toLowerCase();
+
+      if (!query) {
+        showToast("Enter an area name or pincode to check.", "error");
+        return;
+      }
+
+      const isServiceable = serviceableAreas.some(function (area) {
+        return query.includes(area) || area.includes(query);
+      });
+
+      checkerResult.hidden = false;
+      checkerResult.classList.remove("success", "error");
+
+      if (isServiceable) {
+        checkerResult.classList.add("success");
+        checkerResult.textContent = "Great news! FreshDrop delivers to \"" + checkerInput.value.trim() + "\".";
+      } else {
+        checkerResult.classList.add("error");
+        checkerResult.textContent = "We don't deliver to \"" + checkerInput.value.trim() + "\" just yet. Subscribe below to know when we expand!";
+      }
+    });
+  }
 });
