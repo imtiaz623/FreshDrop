@@ -6,7 +6,7 @@
   <title>FreshDrop &#8212; Fresh Groceries, Delivered Today</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="nav-inner">
       <a href="#top" class="brand">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" width="30" height="30">
+          <svg viewBox="0 0 40 40" width="28" height="28">
             <path d="M20 4C12 10 8 18 8 24a12 12 0 0 0 24 0c0-6-4-14-12-20Z" fill="currentColor"/>
             <path d="M20 12v20" stroke="#F8FAF6" stroke-width="2" stroke-linecap="round"/>
           </svg>
@@ -25,59 +25,37 @@
       </a>
 
       <nav class="nav-links" id="navLinks">
-        <a href="#how-it-works">How it works</a>
-        <a href="#reviews">Reviews</a>
+        <a href="#categories">Shop</a>
+        <a href="#order">Order</a>
         <a href="#track">Track order</a>
-        <a href="#rider-registration">Become a Rider</a>
-        <a href="#faq">FAQ</a>
 
-        <!-- Collapsible "More" dropdown for categories -->
         <div class="dropdown" id="moreDropdown">
           <button class="dropdown-toggle" id="moreToggle" aria-haspopup="true" aria-expanded="false">
-            Categories
+            More
             <svg class="chev" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="dropdown-panel" id="morePanel" role="menu">
-            <a href="#categories" data-category="produce" role="menuitem">&#129388; Fruits &amp; Vegetables</a>
-            <a href="#categories" data-category="bakery" role="menuitem">&#127838; Bakery</a>
-            <a href="#categories" data-category="dairy" role="menuitem">&#129371; Dairy &amp; Eggs</a>
-            <a href="#categories" data-category="meat" role="menuitem">&#127831; Meat &amp; Seafood</a>
-            <a href="#categories" data-category="pantry" role="menuitem">&#129530; Pantry Staples</a>
-            <a href="#categories" data-category="beverages" role="menuitem">&#129475; Beverages</a>
+            <a href="#how-it-works" role="menuitem">How it works</a>
+            <a href="#reviews" role="menuitem">Reviews</a>
+            <a href="#rider-registration" role="menuitem">Become a rider</a>
+            <a href="#area-checker" role="menuitem">Check delivery area</a>
+            <a href="#faq" role="menuitem">FAQ</a>
           </div>
         </div>
       </nav>
 
       <div class="nav-right">
-        <!-- Notification bell -->
-        <div class="dropdown notif-dropdown" id="notifDropdown">
-          <button class="icon-btn" id="notifToggle" aria-haspopup="true" aria-expanded="false" aria-label="Notifications">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
-              <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M13.7 21a2 2 0 0 1-3.4 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            <span class="badge" id="notifBadge">3</span>
-          </button>
-          <div class="dropdown-panel notif-panel" id="notifPanel" role="menu">
-            <div class="notif-panel-head">
-              <h4>Notifications</h4>
-            </div>
-            <ul class="notif-list" id="notifList"><!-- populated by script.js --></ul>
-          </div>
-        </div>
-
-        <!-- Dark mode toggle -->
         <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
-          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
             <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
-          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <svg class="icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none">
             <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
           </svg>
         </button>
 
-        <a href="#order" class="btn btn-primary nav-cta">Start an order</a>
+        <a href="#order" class="btn btn-primary nav-cta">Order now</a>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
           <span></span>
@@ -88,194 +66,131 @@
     </div>
   </header>
 
-  <!-- ===== Auto-scrolling Banner Slider ===== -->
-  <section class="banner-slider" id="bannerSlider" aria-label="Promotions">
-    <div class="slider-track" id="sliderTrack">
-      <div class="slide slide-1">
-        <div class="slide-inner section-inner">
-          <p class="slide-eyebrow">Fresh &amp; fast</p>
-          <h2>Farm-fresh groceries, delivered today</h2>
-          <p class="slide-text">Local produce, bakery, and pantry essentials on your doorstep in as little as three hours.</p>
-          <a href="#order" class="btn btn-primary">Start an order</a>
+  <!-- ===== Hero slider (merged hero + auto-scrolling banner) ===== -->
+  <section class="hero-slider" id="top" aria-label="Highlights">
+    <div class="hero-track" id="heroTrack">
+
+      <!-- Slide 1: brand / main -->
+      <div class="hero-slide">
+        <div class="hero-slide-inner section-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Same-day delivery, seven days a week</p>
+            <h1>Farm-fresh groceries, on your doorstep by evening.</h1>
+            <p class="hero-sub">FreshDrop picks, packs, and delivers produce, pantry staples, and everyday essentials from local growers &#8212; usually within three hours of ordering.</p>
+            <div class="hero-actions">
+              <a href="#order" class="btn btn-primary">Start an order</a>
+              <a href="#track" class="btn btn-ghost">Track an order</a>
+            </div>
+            <dl class="hero-stats">
+              <div><dt>3 hrs</dt><dd>average delivery</dd></div>
+              <div><dt>120+</dt><dd>local suppliers</dd></div>
+              <div><dt>4.9/5</dt><dd>customer rating</dd></div>
+            </dl>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="blob blob-a"></div>
+            <div class="blob blob-b"></div>
+            <div class="crate">
+              <div class="crate-row">
+                <span class="produce carrot"></span>
+                <span class="produce tomato"></span>
+                <span class="produce leaf"></span>
+              </div>
+              <div class="crate-row">
+                <span class="produce lemon"></span>
+                <span class="produce berry"></span>
+              </div>
+              <div class="crate-slats"></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="slide slide-2">
-        <div class="slide-inner section-inner">
-          <p class="slide-eyebrow">Join the team</p>
-          <h2>Become a FreshDrop rider</h2>
-          <p class="slide-text">Flexible hours, weekly payouts, and a friendly delivery crew.</p>
-          <a href="#rider-registration" class="btn btn-primary">Apply now</a>
+      <!-- Slide 2: express delivery -->
+      <div class="hero-slide">
+        <div class="hero-slide-inner section-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Need it now?</p>
+            <h1>Express delivery, right to your door in 60 minutes.</h1>
+            <p class="hero-sub">Skip the wait for urgent essentials. Express is available on every order, any day of the week.</p>
+            <div class="hero-actions">
+              <a href="#order" class="btn btn-primary">Order now</a>
+              <a href="#categories" class="btn btn-ghost">Browse categories</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="illustration-panel">
+              <svg viewBox="0 0 140 100" width="100%" height="100%">
+                <ellipse cx="70" cy="88" rx="52" ry="6" fill="#FDF0E3"/>
+                <path d="M18 62l6-4M14 70l7-4M22 78l6-4" stroke="#E0A340" stroke-width="4" stroke-linecap="round"/>
+                <path d="M36 78c0-14 8-24 8-24h14l6 12h8a8 8 0 0 1 8 8v4" stroke="#40916C" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="70" y="46" width="24" height="18" rx="5" fill="#95D5B2"/>
+                <rect x="52" y="50" width="12" height="4" rx="2" fill="#1B4332"/>
+                <circle cx="36" cy="80" r="13" fill="#1B4332"/>
+                <circle cx="36" cy="80" r="5" fill="#F8FAF6"/>
+                <circle cx="98" cy="80" r="13" fill="#1B4332"/>
+                <circle cx="98" cy="80" r="5" fill="#F8FAF6"/>
+                <path d="M92 78h12" stroke="#1B4332" stroke-width="6" stroke-linecap="round"/>
+                <path d="M104 78v-14" stroke="#1B4332" stroke-width="6" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="slide slide-3">
-        <div class="slide-inner section-inner">
-          <p class="slide-eyebrow">Need it now?</p>
-          <h2>Express delivery in 60 minutes</h2>
-          <p class="slide-text">Skip the wait with express delivery, available on every order.</p>
-          <a href="#order" class="btn btn-primary">Order now</a>
+      <!-- Slide 3: rider recruitment -->
+      <div class="hero-slide">
+        <div class="hero-slide-inner section-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Join the team</p>
+            <h1>Drive with FreshDrop, earn on your schedule.</h1>
+            <p class="hero-sub">Flexible hours, weekly payouts, and a friendly crew. Apply in minutes and start delivering within 48 hours.</p>
+            <div class="hero-actions">
+              <a href="#rider-registration" class="btn btn-primary">Apply to be a rider</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="illustration-panel">
+              <svg viewBox="0 0 140 100" width="100%" height="100%">
+                <ellipse cx="70" cy="88" rx="52" ry="6" fill="#E7F5EC"/>
+                <rect x="10" y="24" width="78" height="48" rx="10" fill="#40916C"/>
+                <rect x="20" y="36" width="58" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
+                <rect x="20" y="46" width="58" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
+                <rect x="20" y="56" width="40" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
+                <path d="M88 38h20a8 8 0 0 1 8 8v14a4 4 0 0 1-4 4H88Z" fill="#1B4332"/>
+                <rect x="98" y="44" width="14" height="12" rx="2" fill="#95D5B2"/>
+                <circle cx="40" cy="80" r="13" fill="#1B4332"/>
+                <circle cx="40" cy="80" r="5" fill="#F8FAF6"/>
+                <circle cx="104" cy="80" r="13" fill="#1B4332"/>
+                <circle cx="104" cy="80" r="5" fill="#F8FAF6"/>
+                <circle cx="49" cy="20" r="11" fill="#95D5B2"/>
+                <path d="M45 20l3 3 6-6" stroke="#1B4332" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="slide slide-4">
-        <div class="slide-inner section-inner">
-          <p class="slide-eyebrow">First order?</p>
-          <h2>Free delivery on your first basket</h2>
-          <p class="slide-text">No minimum order, no hidden fees &#8212; just fresh groceries at your door.</p>
-          <a href="#categories" class="btn btn-primary">Shop now</a>
-        </div>
-      </div>
     </div>
 
-    <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous slide">
+    <button class="slider-arrow prev" id="heroPrev" aria-label="Previous slide">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <button class="slider-arrow next" id="sliderNext" aria-label="Next slide">
+    <button class="slider-arrow next" id="heroNext" aria-label="Next slide">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
 
-    <div class="slider-dots" id="sliderDots">
+    <div class="slider-dots" id="heroDots">
       <button class="slider-dot active" data-slide="0" aria-label="Go to slide 1"></button>
       <button class="slider-dot" data-slide="1" aria-label="Go to slide 2"></button>
       <button class="slider-dot" data-slide="2" aria-label="Go to slide 3"></button>
-      <button class="slider-dot" data-slide="3" aria-label="Go to slide 4"></button>
-    </div>
-  </section>
-
-  <!-- ===== Hero ===== -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">Same-day delivery, seven days a week</p>
-        <h1>Farm-fresh groceries, on your doorstep by evening.</h1>
-        <p class="hero-sub">
-          FreshDrop picks, packs, and delivers produce, pantry staples, and
-          everyday essentials from local growers &#8212; usually within three hours
-          of ordering.
-        </p>
-        <div class="hero-actions">
-          <a href="#order" class="btn btn-primary">Start an order</a>
-          <a href="#track" class="btn btn-ghost">Track an order</a>
-        </div>
-
-        <dl class="hero-stats">
-          <div>
-            <dt>3 hrs</dt>
-            <dd>average delivery window</dd>
-          </div>
-          <div>
-            <dt>120+</dt>
-            <dd>local farms &amp; suppliers</dd>
-          </div>
-          <div>
-            <dt>4.9/5</dt>
-            <dd>customer rating</dd>
-          </div>
-        </dl>
-      </div>
-
-      <div class="hero-visual" aria-hidden="true">
-        <div class="blob blob-a"></div>
-        <div class="blob blob-b"></div>
-        <div class="crate">
-          <div class="crate-row">
-            <span class="produce carrot"></span>
-            <span class="produce tomato"></span>
-            <span class="produce leaf"></span>
-          </div>
-          <div class="crate-row">
-            <span class="produce lemon"></span>
-            <span class="produce berry"></span>
-          </div>
-          <div class="crate-slats"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Delivery Types ===== -->
-  <section class="delivery-types" id="delivery-types">
-    <div class="section-inner">
-      <h2>Choose how it arrives</h2>
-      <p class="section-lead">Pick the delivery speed that fits your day.</p>
-
-      <div class="delivery-grid">
-        <article class="delivery-card">
-          <div class="delivery-art" aria-hidden="true">
-            <svg viewBox="0 0 140 100" width="100%" height="100%">
-              <ellipse cx="70" cy="88" rx="52" ry="6" fill="#E7F5EC"/>
-              <rect x="10" y="24" width="78" height="48" rx="10" fill="#40916C"/>
-              <rect x="20" y="36" width="58" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
-              <rect x="20" y="46" width="58" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
-              <rect x="20" y="56" width="40" height="4" rx="2" fill="#E7F5EC" opacity="0.55"/>
-              <path d="M88 38h20a8 8 0 0 1 8 8v14a4 4 0 0 1-4 4H88Z" fill="#1B4332"/>
-              <rect x="98" y="44" width="14" height="12" rx="2" fill="#95D5B2"/>
-              <circle cx="40" cy="80" r="13" fill="#1B4332"/>
-              <circle cx="40" cy="80" r="5" fill="#F8FAF6"/>
-              <circle cx="104" cy="80" r="13" fill="#1B4332"/>
-              <circle cx="104" cy="80" r="5" fill="#F8FAF6"/>
-              <circle cx="49" cy="20" r="11" fill="#95D5B2"/>
-              <path d="M45 20l3 3 6-6" stroke="#1B4332" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="delivery-badge">Most popular</span>
-          <h3>Standard delivery</h3>
-          <p>Arrives within a 3-hour window you choose, at no extra cost.</p>
-        </article>
-
-        <article class="delivery-card">
-          <div class="delivery-art" aria-hidden="true">
-            <svg viewBox="0 0 140 100" width="100%" height="100%">
-              <ellipse cx="70" cy="88" rx="52" ry="6" fill="#FDF0E3"/>
-              <path d="M18 62l6-4M14 70l7-4M22 78l6-4" stroke="#E0A340" stroke-width="4" stroke-linecap="round"/>
-              <path d="M36 78c0-14 8-24 8-24h14l6 12h8a8 8 0 0 1 8 8v4" stroke="#40916C" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="70" y="46" width="24" height="18" rx="5" fill="#95D5B2"/>
-              <rect x="52" y="50" width="12" height="4" rx="2" fill="#1B4332"/>
-              <circle cx="36" cy="80" r="13" fill="#1B4332"/>
-              <circle cx="36" cy="80" r="5" fill="#F8FAF6"/>
-              <circle cx="98" cy="80" r="13" fill="#1B4332"/>
-              <circle cx="98" cy="80" r="5" fill="#F8FAF6"/>
-              <path d="M92 78h12" stroke="#1B4332" stroke-width="6" stroke-linecap="round"/>
-              <path d="M104 78v-14" stroke="#1B4332" stroke-width="6" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="delivery-badge accent">Fastest</span>
-          <h3>Express delivery</h3>
-          <p>At your door in under 60 minutes for urgent essentials.</p>
-        </article>
-
-        <article class="delivery-card">
-          <div class="delivery-art" aria-hidden="true">
-            <svg viewBox="0 0 140 100" width="100%" height="100%">
-              <ellipse cx="70" cy="88" rx="52" ry="6" fill="#E9F1FB"/>
-              <rect x="24" y="16" width="92" height="66" rx="10" fill="#F8FAF6" stroke="#E1E8E2" stroke-width="2"/>
-              <path d="M24 26a10 10 0 0 1 10-10h72a10 10 0 0 1 10 10v6H24Z" fill="#40916C"/>
-              <rect x="40" y="10" width="6" height="12" rx="3" fill="#1B4332"/>
-              <rect x="94" y="10" width="6" height="12" rx="3" fill="#1B4332"/>
-              <circle cx="44" cy="44" r="4" fill="#B7CFC2"/>
-              <circle cx="60" cy="44" r="4" fill="#B7CFC2"/>
-              <circle cx="76" cy="44" r="4" fill="#B7CFC2"/>
-              <circle cx="92" cy="44" r="4" fill="#B7CFC2"/>
-              <circle cx="44" cy="58" r="4" fill="#B7CFC2"/>
-              <circle cx="60" cy="58" r="9" fill="#E0A340"/>
-              <circle cx="76" cy="58" r="4" fill="#B7CFC2"/>
-              <circle cx="92" cy="58" r="4" fill="#B7CFC2"/>
-              <circle cx="104" cy="70" r="15" fill="#F8FAF6" stroke="#40916C" stroke-width="3"/>
-              <path d="M104 62v8l6 4" stroke="#1B4332" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="delivery-badge">Flexible</span>
-          <h3>Scheduled delivery</h3>
-          <p>Plan ahead and pick the exact day and time slot that suits you.</p>
-        </article>
-      </div>
     </div>
   </section>
 
   <!-- ===== Categories ===== -->
   <section class="categories" id="categories">
     <div class="section-inner">
+      <span class="eyebrow-tag">Shop</span>
       <h2>What we deliver</h2>
       <p class="section-lead">Six ways to fill your basket, sourced fresh and packed cold.</p>
 
@@ -284,14 +199,13 @@
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           <input type="text" id="categorySearch" placeholder="Search categories or items..." aria-label="Search categories" />
         </div>
-
         <div class="filter-chips" id="filterChips">
           <button class="chip active" data-filter="all" type="button">All</button>
-          <button class="chip" data-filter="produce" type="button">Fruits &amp; Vegetables</button>
+          <button class="chip" data-filter="produce" type="button">Produce</button>
           <button class="chip" data-filter="bakery" type="button">Bakery</button>
-          <button class="chip" data-filter="dairy" type="button">Dairy &amp; Eggs</button>
-          <button class="chip" data-filter="meat" type="button">Meat &amp; Seafood</button>
-          <button class="chip" data-filter="pantry" type="button">Pantry Staples</button>
+          <button class="chip" data-filter="dairy" type="button">Dairy</button>
+          <button class="chip" data-filter="meat" type="button">Meat</button>
+          <button class="chip" data-filter="pantry" type="button">Pantry</button>
           <button class="chip" data-filter="beverages" type="button">Beverages</button>
         </div>
       </div>
@@ -305,7 +219,10 @@
           <p>Seasonal produce picked within 24 hours of your delivery.</p>
           <div class="card-actions">
             <button class="card-link" data-order-category="produce">Order this <span aria-hidden="true">&#8594;</span></button>
-            <a href="#" class="whatsapp-btn" data-whatsapp-category="produce" target="_blank" rel="noopener" aria-label="Order via WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a href="#" class="whatsapp-btn" data-whatsapp-category="produce" target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </article>
 
@@ -315,7 +232,10 @@
           <p>Fresh-baked bread, pastries, and morning essentials.</p>
           <div class="card-actions">
             <button class="card-link" data-order-category="bakery">Order this <span aria-hidden="true">&#8594;</span></button>
-            <a href="#" class="whatsapp-btn" data-whatsapp-category="bakery" target="_blank" rel="noopener" aria-label="Order via WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a href="#" class="whatsapp-btn" data-whatsapp-category="bakery" target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </article>
 
@@ -325,7 +245,10 @@
           <p>Milk, cheese, and farm eggs, kept cold from source to door.</p>
           <div class="card-actions">
             <button class="card-link" data-order-category="dairy">Order this <span aria-hidden="true">&#8594;</span></button>
-            <a href="#" class="whatsapp-btn" data-whatsapp-category="dairy" target="_blank" rel="noopener" aria-label="Order via WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a href="#" class="whatsapp-btn" data-whatsapp-category="dairy" target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </article>
 
@@ -335,7 +258,10 @@
           <p>Butcher-cut meat and fresh seafood, delivered chilled.</p>
           <div class="card-actions">
             <button class="card-link" data-order-category="meat">Order this <span aria-hidden="true">&#8594;</span></button>
-            <a href="#" class="whatsapp-btn" data-whatsapp-category="meat" target="_blank" rel="noopener" aria-label="Order via WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a href="#" class="whatsapp-btn" data-whatsapp-category="meat" target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </article>
 
@@ -345,7 +271,10 @@
           <p>Rice, oils, spices, and everyday cooking basics.</p>
           <div class="card-actions">
             <button class="card-link" data-order-category="pantry">Order this <span aria-hidden="true">&#8594;</span></button>
-            <a href="#" class="whatsapp-btn" data-whatsapp-category="pantry" target="_blank" rel="noopener" aria-label="Order via WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a href="#" class="whatsapp-btn" data-whatsapp-category="pantry" target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </article>
 
@@ -355,42 +284,36 @@
           <p>Juices, teas, and coffee, sourced from local roasters.</p>
           <div class="card-actions">
             <button class="card-link" data-order-category="beverages">Order this <span aria-hidden="true">&#8594;</span></button>
-            <a href="#" class="whatsapp-btn" data-whatsapp-category="beverages" target="_blank" rel="noopener" aria-label="Order via WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a href="#" class="whatsapp-btn" data-whatsapp-category="beverages" target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== Reviews / Testimonials ===== -->
-  <section class="reviews" id="reviews">
-    <div class="section-inner">
-      <div class="reviews-head">
-        <div>
-          <h2>What customers say</h2>
-          <p class="section-lead">Real feedback from FreshDrop households.</p>
-        </div>
-        <button class="btn btn-ghost" id="writeReviewBtn">Write a review</button>
-      </div>
-
-      <div class="review-grid" id="reviewGrid"><!-- populated by script.js --></div>
-    </div>
-  </section>
-
   <!-- ===== How it works ===== -->
   <section class="how-it-works" id="how-it-works">
     <div class="section-inner">
+      <span class="eyebrow-tag light">Process</span>
       <h2>How FreshDrop works</h2>
+      <p class="section-lead light">Three simple steps from basket to doorstep.</p>
+
       <div class="steps">
-        <div class="step">
+        <div class="step-card">
+          <span class="step-number">1</span>
           <h3>Tell us what you need</h3>
           <p>Choose a category and delivery details in a few quick steps.</p>
         </div>
-        <div class="step">
+        <div class="step-card">
+          <span class="step-number">2</span>
           <h3>We hand-pick it fresh</h3>
           <p>Our team sources each item from local farms and trusted suppliers.</p>
         </div>
-        <div class="step">
+        <div class="step-card">
+          <span class="step-number">3</span>
           <h3>It arrives at your door</h3>
           <p>Track your delivery in real time, right up to your doorstep.</p>
         </div>
@@ -398,31 +321,36 @@
     </div>
   </section>
 
-  <!-- ===== Order Workflow (multi-step) ===== -->
+  <!-- ===== Reviews ===== -->
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="reviews-head">
+        <div>
+          <span class="eyebrow-tag">Testimonials</span>
+          <h2>What customers say</h2>
+          <p class="section-lead">Real feedback from FreshDrop households.</p>
+        </div>
+        <button class="btn btn-ghost" id="writeReviewBtn">Write a review</button>
+      </div>
+      <div class="review-grid" id="reviewGrid"><!-- populated by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ===== Order Workflow ===== -->
   <section class="order" id="order">
     <div class="section-inner">
+      <span class="eyebrow-tag">Checkout</span>
       <h2>Place an order</h2>
       <p class="section-lead">A few quick steps and we'll have it packed and on the way.</p>
 
-      <div class="order-panel">
-        <!-- Stepper progress -->
+      <div class="order-panel card-panel">
         <ol class="stepper" id="stepper">
-          <li class="stepper-item active" data-step="1">
-            <span class="stepper-dot">1</span>
-            <span class="stepper-label">Basket</span>
-          </li>
-          <li class="stepper-item" data-step="2">
-            <span class="stepper-dot">2</span>
-            <span class="stepper-label">Delivery</span>
-          </li>
-          <li class="stepper-item" data-step="3">
-            <span class="stepper-dot">3</span>
-            <span class="stepper-label">Review</span>
-          </li>
+          <li class="stepper-item active" data-step="1"><span class="stepper-dot">1</span><span class="stepper-label">Basket</span></li>
+          <li class="stepper-item" data-step="2"><span class="stepper-dot">2</span><span class="stepper-label">Delivery</span></li>
+          <li class="stepper-item" data-step="3"><span class="stepper-dot">3</span><span class="stepper-label">Review</span></li>
         </ol>
 
         <form class="order-form" id="orderForm" novalidate>
-          <!-- Step 1: Basket -->
           <div class="form-step active" data-step="1">
             <div class="form-row">
               <label for="category">Category</label>
@@ -437,12 +365,10 @@
                 <option value="mixed">A bit of everything</option>
               </select>
             </div>
-
             <div class="form-row">
               <label for="notes">Items you'd like</label>
               <textarea id="notes" name="notes" rows="4" placeholder="List the items you need &#8212; e.g. 2 lb tomatoes, sourdough loaf, dozen eggs" required></textarea>
             </div>
-
             <div class="form-row">
               <label for="quantity">Estimated basket size</label>
               <select id="quantity" name="quantity" required>
@@ -454,28 +380,23 @@
             </div>
           </div>
 
-          <!-- Step 2: Delivery details -->
           <div class="form-step" data-step="2">
             <div class="form-row">
               <label for="name">Full name</label>
               <input type="text" id="name" name="name" placeholder="Jordan Lee" required />
             </div>
-
             <div class="form-row">
               <label for="email">Email address</label>
               <input type="email" id="email" name="email" placeholder="jordan@example.com" required />
             </div>
-
             <div class="form-row">
               <label for="phone">Phone number</label>
               <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required />
             </div>
-
             <div class="form-row">
               <label for="address">Delivery address</label>
               <input type="text" id="address" name="address" placeholder="123 Maple Street, Springfield" required />
             </div>
-
             <div class="form-row">
               <label for="deliveryTime">Preferred delivery window</label>
               <select id="deliveryTime" name="deliveryTime" required>
@@ -487,18 +408,14 @@
             </div>
           </div>
 
-          <!-- Step 3: Review & confirm -->
           <div class="form-step" data-step="3">
-            <div class="review-summary" id="reviewSummary">
-              <!-- populated by script.js -->
-            </div>
+            <div class="review-summary" id="reviewSummary"></div>
             <label class="checkbox-row">
               <input type="checkbox" id="confirmAccuracy" required />
               I confirm these order details are correct.
             </label>
           </div>
 
-          <!-- Step controls -->
           <div class="form-controls">
             <button type="button" class="btn btn-ghost" id="prevStepBtn" disabled>Back</button>
             <button type="button" class="btn btn-primary" id="nextStepBtn">Continue</button>
@@ -512,10 +429,11 @@
   <!-- ===== Order Tracking ===== -->
   <section class="tracking" id="track">
     <div class="section-inner">
+      <span class="eyebrow-tag">Tracking</span>
       <h2>Track your order</h2>
       <p class="section-lead">Enter the order ID from your confirmation to see live status.</p>
 
-      <div class="tracking-panel">
+      <div class="tracking-panel card-panel">
         <form class="tracking-form" id="trackingForm" novalidate>
           <input type="text" id="trackingId" name="trackingId" placeholder="e.g. FD-4821" aria-label="Order ID" required />
           <button type="submit" class="btn btn-primary">Track order</button>
@@ -524,41 +442,14 @@
 
         <div class="tracking-result" id="trackingResult" hidden>
           <div class="tracking-result-head">
-            <div>
-              <span class="tracking-order-id" id="trackingOrderId"></span>
-              <p class="tracking-status-text" id="trackingStatusText"></p>
-            </div>
+            <span class="tracking-order-id" id="trackingOrderId"></span>
+            <p class="tracking-status-text" id="trackingStatusText"></p>
           </div>
-
           <ol class="timeline" id="timeline">
-            <li class="timeline-step" data-status="placed">
-              <span class="timeline-dot"></span>
-              <div>
-                <h4>Order placed</h4>
-                <p>We've received your order and confirmed the details.</p>
-              </div>
-            </li>
-            <li class="timeline-step" data-status="preparing">
-              <span class="timeline-dot"></span>
-              <div>
-                <h4>Preparing your basket</h4>
-                <p>Your items are being hand-picked and packed cold.</p>
-              </div>
-            </li>
-            <li class="timeline-step" data-status="out-for-delivery">
-              <span class="timeline-dot"></span>
-              <div>
-                <h4>Out for delivery</h4>
-                <p>Your driver is on the way to your address.</p>
-              </div>
-            </li>
-            <li class="timeline-step" data-status="delivered">
-              <span class="timeline-dot"></span>
-              <div>
-                <h4>Delivered</h4>
-                <p>Enjoy your fresh groceries!</p>
-              </div>
-            </li>
+            <li class="timeline-step" data-status="placed"><span class="timeline-dot"></span><div><h4>Order placed</h4><p>We've received your order and confirmed the details.</p></div></li>
+            <li class="timeline-step" data-status="preparing"><span class="timeline-dot"></span><div><h4>Preparing your basket</h4><p>Your items are being hand-picked and packed cold.</p></div></li>
+            <li class="timeline-step" data-status="out-for-delivery"><span class="timeline-dot"></span><div><h4>Out for delivery</h4><p>Your driver is on the way to your address.</p></div></li>
+            <li class="timeline-step" data-status="delivered"><span class="timeline-dot"></span><div><h4>Delivered</h4><p>Enjoy your fresh groceries!</p></div></li>
           </ol>
         </div>
       </div>
@@ -569,6 +460,7 @@
   <section class="rider" id="rider-registration">
     <div class="section-inner rider-inner">
       <div class="rider-copy">
+        <span class="eyebrow-tag">Careers</span>
         <h2>Become a FreshDrop rider</h2>
         <p class="section-lead">Join our delivery team &#8212; flexible hours, weekly payouts, and a supportive crew.</p>
         <ul class="rider-points">
@@ -578,23 +470,20 @@
         </ul>
       </div>
 
-      <div class="rider-form-wrap">
+      <div class="rider-form-wrap card-panel">
         <form class="rider-form" id="riderForm" novalidate>
           <div class="form-row">
             <label for="riderName">Full name</label>
             <input type="text" id="riderName" name="riderName" placeholder="Your full name" required />
           </div>
-
           <div class="form-row">
             <label for="riderPhone">Phone number</label>
             <input type="tel" id="riderPhone" name="riderPhone" placeholder="(555) 123-4567" required />
           </div>
-
           <div class="form-row">
             <label for="riderArea">Preferred delivery area</label>
             <input type="text" id="riderArea" name="riderArea" placeholder="e.g. Downtown, North Side" required />
           </div>
-
           <div class="form-row">
             <label for="riderVehicle">Vehicle type</label>
             <select id="riderVehicle" name="riderVehicle" required>
@@ -605,7 +494,6 @@
               <option value="car">Car</option>
             </select>
           </div>
-
           <div class="form-row">
             <label for="riderFile">Upload CV or photo</label>
             <div class="file-upload">
@@ -616,7 +504,6 @@
               </label>
             </div>
           </div>
-
           <button type="submit" class="btn btn-primary btn-block">Submit application</button>
         </form>
 
@@ -634,16 +521,13 @@
   <section class="area-checker" id="area-checker">
     <div class="section-inner">
       <div class="checker-panel">
-        <div class="checker-copy">
-          <h2>Check delivery availability</h2>
-          <p class="section-lead">Enter your area name or pincode to see if FreshDrop delivers there yet.</p>
-        </div>
-
+        <span class="eyebrow-tag on-dark">Coverage</span>
+        <h2>Check delivery availability</h2>
+        <p class="section-lead light">Enter your area name or pincode to see if FreshDrop delivers there yet.</p>
         <form class="checker-form" id="checkerForm" novalidate>
           <input type="text" id="checkerInput" placeholder="Enter area name or pincode" aria-label="Area or pincode" required />
           <button type="submit" class="btn btn-primary">Check availability</button>
         </form>
-
         <p class="checker-result" id="checkerResult" hidden></p>
       </div>
     </div>
@@ -652,6 +536,7 @@
   <!-- ===== FAQ ===== -->
   <section class="faq" id="faq">
     <div class="section-inner">
+      <span class="eyebrow-tag">Support</span>
       <h2>Frequently asked questions</h2>
       <p class="section-lead">Everything you need to know before your first order.</p>
 
@@ -661,55 +546,41 @@
             <span>What areas does FreshDrop deliver to?</span>
             <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="accordion-body">
-            <p>We currently deliver across the greater metro area and surrounding suburbs. Use the delivery area checker above to confirm coverage before you place an order.</p>
-          </div>
+          <div class="accordion-body"><p>We currently deliver across the greater metro area and surrounding suburbs. Use the delivery area checker above to confirm coverage before you place an order.</p></div>
         </div>
-
         <div class="accordion-item">
           <button class="accordion-header" aria-expanded="false">
             <span>How fast will my order arrive?</span>
             <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="accordion-body">
-            <p>Most orders arrive within 3 hours during your selected delivery window. You can follow every stage live in the Track order section once you have your order ID.</p>
-          </div>
+          <div class="accordion-body"><p>Most orders arrive within 3 hours during your selected delivery window. Follow every stage live in the Track order section once you have your order ID.</p></div>
         </div>
-
         <div class="accordion-item">
           <button class="accordion-header" aria-expanded="false">
             <span>Is there a minimum order amount?</span>
             <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="accordion-body">
-            <p>No minimum. Order a single item or a full weekly basket &#8212; the delivery process is the same either way.</p>
-          </div>
+          <div class="accordion-body"><p>No minimum. Order a single item or a full weekly basket &#8212; the delivery process is the same either way.</p></div>
         </div>
-
         <div class="accordion-item">
           <button class="accordion-header" aria-expanded="false">
             <span>Can I change or cancel my order?</span>
             <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="accordion-body">
-            <p>Yes &#8212; reach out through the contact details below any time before your order is marked "Out for delivery" and our team will update or cancel it for you.</p>
-          </div>
+          <div class="accordion-body"><p>Yes &#8212; reach out through the contact details below any time before your order is marked "Out for delivery" and our team will update or cancel it for you.</p></div>
         </div>
-
         <div class="accordion-item">
           <button class="accordion-header" aria-expanded="false">
             <span>What payment methods are accepted?</span>
             <svg class="chev" width="14" height="14" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="accordion-body">
-            <p>All major debit and credit cards, plus cash on delivery in select areas. You'll choose your preferred method after confirming your basket.</p>
-          </div>
+          <div class="accordion-body"><p>All major debit and credit cards, plus cash on delivery in select areas. You'll choose your preferred method after confirming your basket.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer / Contact ===== -->
+  <!-- ===== Footer ===== -->
   <footer class="site-footer" id="contact">
     <div class="section-inner footer-inner">
       <div>
@@ -734,10 +605,10 @@
 
       <div class="footer-links">
         <h4>Explore</h4>
-        <a href="#categories">Categories</a>
+        <a href="#categories">Shop</a>
         <a href="#reviews">Reviews</a>
-        <a href="#order">Order</a>
         <a href="#track">Track order</a>
+        <a href="#rider-registration">Become a rider</a>
         <a href="#faq">FAQ</a>
       </div>
 
@@ -753,24 +624,13 @@
     <p class="footer-bottom">&#169; 2026 FreshDrop. All rights reserved.</p>
   </footer>
 
-  <!-- ===== Back to top ===== -->
+  <!-- ===== Floating actions ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
-  <!-- ===== Floating WhatsApp order button ===== -->
-  <a
-    href="https://wa.me/911234567890?text=Hi%20FreshDrop%2C%20I%27d%20like%20to%20place%20an%20order."
-    class="whatsapp-float"
-    target="_blank"
-    rel="noopener"
-    aria-label="Order via WhatsApp"
-  >
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/>
-    </svg>
+  <a href="https://wa.me/911234567890?text=Hi%20FreshDrop%2C%20I%27d%20like%20to%20place%20an%20order." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
   </a>
 
   <!-- ===== Write a review modal ===== -->
@@ -783,7 +643,6 @@
           <label for="reviewName">Your name</label>
           <input type="text" id="reviewName" name="reviewName" placeholder="Your name" required />
         </div>
-
         <div class="form-row">
           <label>Rating</label>
           <div class="star-rating" id="starRating" data-value="0">
@@ -794,12 +653,10 @@
             <button type="button" class="star" data-value="5" aria-label="5 stars">&#9733;</button>
           </div>
         </div>
-
         <div class="form-row">
           <label for="reviewText">Your review</label>
           <textarea id="reviewText" name="reviewText" rows="4" placeholder="Tell us about your delivery experience" required></textarea>
         </div>
-
         <button type="submit" class="btn btn-primary btn-block">Submit review</button>
       </form>
     </div>
@@ -817,7 +674,6 @@
     </div>
   </div>
 
-  <!-- ===== Toast container ===== -->
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
   <script src="script.js"></script>
